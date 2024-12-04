@@ -54,7 +54,6 @@ my-api/
 │   │   │   └── routes/
 │   │   ├── middlewares/
 │   │   └── repositories/
-├── tests/
 ├── .env
 ├── .env.example
 ├── .gitignore
@@ -64,86 +63,6 @@ my-api/
 ├── .dockerignore
 ├── .prettierrc
 └── README.md
-```
-
-This structure follows clean architecture principles:
-
-- `prisma/`: Contains Prisma schema and migrations.
-- `src/application/`: Application business rules and use cases.
-- `src/config/`: Configuration files for the application.
-- `src/domain/`: Enterprise business rules, entities, and repository interfaces.
-- `src/infrastructure/`:
-  - `DI/`: Dependency injection setup.
-  - `filters/`: Request/response filters.
-  - `http/`: HTTP-related components.
-    - `controllers/`: Express controllers.
-    - `routes/`: Express routes.
-  - `middlewares/`: Express middlewares.
-  - `repositories/`: Concrete implementations of repository interfaces.
-
-## Setup
-
-1. Navigate to your project directory:
-
-   ```bash
-   cd my-api
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Set up your environment variables:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   Edit the `.env` file with your database credentials and other configuration.
-
-4. Generate Prisma client:
-
-   ```bash
-   npx prisma generate
-   ```
-
-5. Run database migrations:
-   ```bash
-   npx prisma migrate dev
-   ```
-
-## Running the Application
-
-To start the development server:
-
-```bash
-npm run dev
-```
-
-The API will be available at `http://localhost:4000` by default.
-
-## Testing
-
-Run the test suite:
-
-```bash
-npm test
-```
-
-## Building for Production
-
-To build the application for production:
-
-```bash
-npm run build
-```
-
-To start the production server:
-
-```bash
-npm start
 ```
 
 ## Contributing
