@@ -54,9 +54,6 @@ my-api/
 │   │   │   └── routes/
 │   │   ├── middlewares/
 │   │   └── repositories/
-│   └── interfaces/
-│       ├── controllers/
-│       └── presenters/
 ├── tests/
 ├── .env
 ├── .env.example
