@@ -23,7 +23,9 @@ async function createApp() {
     const gitDir = path.join(projectPath, ".git");
     if (fs.existsSync(gitDir)) {
       fs.rmSync(gitDir, { recursive: true, force: true });
-      console.log("Removed .git directory to unlink from the original repository");
+      console.log(
+        "Removed .git directory to unlink from the original repository"
+      );
     }
 
     const isPnpmAvailable = await isPnpmInstalled();
@@ -48,4 +50,9 @@ async function isPnpmInstalled() {
   try {
     await execa("pnpm", ["--version"]);
     return true;
-  } catch
+  } catch (error) {
+    return false;
+  }
+}
+
+createApp();
