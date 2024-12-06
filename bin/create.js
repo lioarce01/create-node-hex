@@ -4,6 +4,7 @@ import simpleGit from "simple-git";
 import { execa } from "execa";
 import fs from "fs";
 import path from "path";
+import chalk from "chalk";
 
 const git = simpleGit();
 
@@ -12,37 +13,50 @@ const projectName = process.argv[2] || "my-node-app";
 
 async function createApp() {
   try {
-    console.log(`Creating Node App ${repoUrl}...`);
+    console.log(
+      chalk.blueBright(`Creating Node App in "${projectName}" from template...`)
+    );
     await git.clone(repoUrl, projectName);
 
-    console.log("Node App created successfully");
+    console.log(chalk.green("Node App cloned successfully"));
 
     const projectPath = path.join(process.cwd(), projectName);
 
-    // Eliminar la carpeta .git para desvincular el proyecto del repositorio original
     const gitDir = path.join(projectPath, ".git");
     if (fs.existsSync(gitDir)) {
       fs.rmSync(gitDir, { recursive: true, force: true });
       console.log(
-        "Removed .git directory to unlink from the original repository"
+        chalk.yellow(
+          "Removed .git directory to unlink from the original repository"
+        )
       );
     }
 
     const isPnpmAvailable = await isPnpmInstalled();
 
-    console.log("Installing Dependencies...");
+    console.log(chalk.blue("Installing Dependencies..."));
     if (isPnpmAvailable) {
       await execa("pnpm", ["install"], { cwd: projectPath });
     } else {
       await execa("npm", ["install"], { cwd: projectPath });
     }
 
-    console.log("Application created and dependencies installed successfully");
-    console.log(`You can start to work on ${projectName}`);
-    console.log(`Navigate to the project folder using:\n  cd ${projectName}`);
-    console.log("You can initialize a new Git repository with:\n  git init");
+    console.log(
+      chalk.green(
+        "Application created and dependencies installed successfully! 🎉"
+      )
+    );
+    console.log(
+      chalk.cyan(
+        `To get started, navigate to your project directory:\n  cd ${projectName}`
+      )
+    );
+    console.log(
+      chalk.cyan("Then, initialize a new Git repository:\n  git init")
+    );
+    console.log(chalk.cyan("You can start working on your project now! 🚀"));
   } catch (error) {
-    console.error("Error creating the application:", error);
+    console.error(chalk.red("Error creating the application:"), error.message);
   }
 }
 
