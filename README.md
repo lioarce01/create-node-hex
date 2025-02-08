@@ -36,33 +36,64 @@ Replace `my-api` with your desired project name.
 The generated project follows a clean architecture structure:
 
 ```
-my-api/
-├── prisma/
-│   └── schema.prisma
-├── src/
-│   ├── application/
-│   │   └── use-cases/
-│   ├── config/
-│   ├── domain/
-│   │   ├── entities/
-│   │   └── repositories/
-│   ├── infrastructure/
-│   │   ├── DI/
-│   │   ├── filters/
-│   │   ├── http/
-│   │   │   ├── controllers/
-│   │   │   └── routes/
-│   │   ├── middlewares/
-│   │   └── repositories/
-├── .env
-├── .env.example
-├── .gitignore
-├── package.json
-├── tsconfig.json
-├── Dockerfile
-├── .dockerignore
-├── .prettierrc
-└── README.md
+Directory structure:
+└── node-boilerplate/
+    ├── Dockerfile
+    ├── docker.compose.yml
+    ├── eslint.config.js
+    ├── generate-docs.js
+    ├── nodemon.json
+    ├── package.json
+    ├── pnpm-lock.yaml
+    ├── tsconfig.json
+    ├── .dockerignore
+    ├── .env.example
+    ├── prisma/
+    │   └── schema.prisma
+    └── src/
+        ├── Auth/
+        │   ├── Plugins/
+        │   ├── Types/
+        │   └── Utils/
+        ├── Cache/
+        │   ├── Application/
+        │   │   └── Services/
+        │   ├── Domain/
+        │   │   └── Repositories/
+        │   └── Infrastructure/
+        │       └── Repositories/
+        ├── Main/
+        │   ├── Domain/
+        │   │   ├── Entities/
+        │   │   │   ├── Base.ts
+        │   │   │   └── Tokens/
+        │   │   └── Repositories/
+        │   └── Infrastructure/
+        │       ├── Criteria/
+        │       ├── Errors/
+        │       ├── Repositories/
+        │       ├── Server/
+        │       │   ├── app.ts
+        │       ├── Types/
+        │       └── Utils/
+        ├── Shared/
+        │   ├── Config/
+        │   │   ├── prisma.ts
+        │   │   ├── redisConfig.ts
+        │   │   ├── serverConfig.ts
+        │   │   └── swaggerConfig.ts
+        │   ├── DI/
+        │   │   ├── DIContainer.ts
+        │   ├── Errors/
+        │   │   └── HTTPError.ts
+        │   ├── HTTP/
+        │   │   ├── ApiResponse.ts
+        │   │   └── StatusCode.ts
+        │   └── Schemas/
+        └── User/
+            ├── Application/
+            ├── Domain/
+            └── Infrastructure/
 ```
 
 ## Contributing
@@ -72,20 +103,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- [Express.js](https://expressjs.com/)
-- [Prisma](https://www.prisma.io/)
-- [TypeScript](https://www.typescriptlang.org/)
-
-## Support
-
-If you have any questions or need help, please open an issue in the GitHub repository.
-
-Happy coding! 🚀
-
-```
-
-This updated README incorporates the new project structure and includes the additional files like Dockerfile, .dockerignore, and .prettierrc. It also updates the default port to 4000 and keeps all the other relevant information from the original README.
-```
