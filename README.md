@@ -9,9 +9,12 @@ A powerful boilerplate for quickly setting up RESTful APIs using Node.js, Fastif
 - 🧼 Clean Code principles
 - 🔧 SOLID design principles
 - 🔒 TypeScript for type safety
-- 🚂 Fastify for routing
+- 🚂 Fastify for routing (replacing Express)
 - 🗄️ Prisma ORM for database operations
-- 🔄 Easy to extend and maintain
+- 🗃️ Database caching service
+- 📜 Swagger documentation added
+- 🔑 Authentication via Auth0
+- 🔄 Modularized structure for better maintainability
 
 ## Prerequisites
 
