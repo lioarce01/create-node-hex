@@ -1,6 +1,6 @@
 # Node Hex Boilerplate
 
-A powerful boilerplate for quickly setting up RESTful APIs using Node.js, Express, Prisma ORM, and TypeScript. This project adheres to clean architecture, clean code principles, and SOLID design principles.
+A powerful boilerplate for quickly setting up RESTful APIs using Node.js, Fastify, Prisma ORM, and TypeScript. This project adheres to clean architecture, clean code principles, and SOLID design principles.
 
 ## Features
 
