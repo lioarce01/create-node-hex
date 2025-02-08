@@ -1,6 +1,6 @@
 {
     "name": "create-node-hex",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "bin": {
       "create-node-hex": "./bin/create-node-hex"
     },
