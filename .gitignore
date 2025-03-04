@@ -10,7 +10,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Go
-bin/
 *.exe
 *.out
 *.o
@@ -23,6 +22,7 @@ bin/
 .vscode/
 .idea/
 *.sublime-workspace
+.qodo
 
 # Archivos del sistema
 .DS_Store

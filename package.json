@@ -1,8 +1,8 @@
 {
     "name": "create-node-hex",
-    "version": "2.0.3",
+    "version": "2.0.7",
     "bin": {
-      "create-node-hex": "./bin/create-node-hex"
+      "create-node-hex": "./bin/index.js"
     },
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"
