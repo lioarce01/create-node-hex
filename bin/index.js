@@ -2,6 +2,11 @@
 import { platform } from "os";
 import { join } from "path";
 import { execFile } from "child_process";
+import { fileURLToPath } from "url";
+
+// Convertir import.meta.url a una ruta de archivo
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = join(__filename, '..'); // Obtenemos el directorio del archivo actual
 
 let binPath;
 switch (platform()) {
