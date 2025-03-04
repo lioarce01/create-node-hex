@@ -1,23 +1,22 @@
 #!/usr/bin/env node
 import { platform } from "os";
-import { join } from "path";
+import { fileURLToPath } from "url"; // Convertir URL a ruta de archivo
+import { dirname, resolve } from "path";
 import { execFile } from "child_process";
-import { fileURLToPath } from "url";
 
-// Convertir import.meta.url a una ruta de archivo
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(__filename, '..'); // Obtenemos el directorio del archivo actual
+// Obtener el directorio del archivo actual
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 let binPath;
 switch (platform()) {
     case "win32":
-        binPath = join(__dirname, "create-node-hex.exe");
+        binPath = resolve(__dirname, "create-node-hex.exe");
         break;
     case "darwin":
-        binPath = join(__dirname, "create-node-hex-macos");
+        binPath = resolve(__dirname, "create-node-hex-macos");
         break;
     case "linux":
-        binPath = join(__dirname, "create-node-hex-linux");
+        binPath = resolve(__dirname, "create-node-hex-linux");
         break;
     default:
         console.error("Unsupported OS");
